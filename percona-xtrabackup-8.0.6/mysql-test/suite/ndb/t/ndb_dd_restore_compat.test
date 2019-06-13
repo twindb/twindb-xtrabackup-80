@@ -1,0 +1,36 @@
+-- source include/have_ndb.inc
+-- source suite/ndb/include/backup_restore_setup.inc
+
+--exec $NDB_RESTORE -b 1 -n 1 -p 1 -m -r $NDB_SAVED_BACKUPS/51_dd >> $NDB_TOOLS_OUTPUT
+--exec $NDB_RESTORE -e -b 1 -n 2 -p 1 -r $NDB_SAVED_BACKUPS/51_dd >> $NDB_TOOLS_OUTPUT
+
+# Restart mysqld to trigger schema synchronization
+let $mysqld_name=mysqld.1.1;
+--source include/restart_mysqld.inc
+
+--replace_column 19 #
+select * from information_schema.columns
+where table_name = "t1";
+show create table t1;
+source show_attributes.inc;
+select * from t1 order by a1;
+
+# Since this is an _old_ table without tablespace
+# in .frm but with tablespace in engine -> do extra checks
+# that tablespace is still there after ALTER
+ALTER TABLE t1 ADD COLUMN c int;
+SHOW CREATE TABLE t1;
+FLUSH TABLES;
+SHOW CREATE TABLE t1;
+
+drop table t1;
+
+ALTER TABLESPACE ts
+DROP DATAFILE 'datafile.dat';
+
+drop tablespace ts;
+
+drop logfile group lg
+engine ndb;
+--source suite/ndb/include/backup_restore_cleanup.inc
+--remove_file $NDB_TOOLS_OUTPUT

@@ -1,0 +1,7 @@
+#!/bin/sh
+#
+# Perform necessary twindb-xtrabackup-80 setup steps
+# before package is installed.
+#
+
+echo "You're about to install twindb-xtrabackup-80!"

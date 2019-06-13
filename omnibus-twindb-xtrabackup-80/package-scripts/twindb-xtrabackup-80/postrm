@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# Perform necessary twindb-xtrabackup-80 removal steps
+# after package is uninstalled.
+#
+
+echo "twindb-xtrabackup-80 has been uninstalled!"
+
+exit 0
