@@ -3,10 +3,9 @@ default_version '8.0.6'
 
 skip_transitive_dependency_licensing true
 dependency 'libffi'
+dependency 'libboost'
 
 source path: '/twindb-xtrabackup-80/percona-xtrabackup-8.0.6/'
-
-# relative_path 'twindb-xtrabackup-80'
 
 build do
     env = with_standard_compiler_flags(with_embedded_path)
@@ -14,8 +13,8 @@ build do
         "-DCMAKE_INSTALL_PREFIX=#{install_dir} " \
         '-DWITH_SSL=system ' \
         '-DWITH_MAN_PAGES=OFF ' \
-        '-DDOWNLOAD_BOOST=1 ' \
-        "-DWITH_BOOST=#{install_dir}/libboost " \
+        '-DDOWNLOAD_BOOST=0 ' \
+        '-DWITH_BOOST=../libboost ' \
         '-DFORCE_INSOURCE_BUILD=1 ' \
         "-DINSTALL_BINDIR=#{install_dir}/embedded/bin", env: env
 
