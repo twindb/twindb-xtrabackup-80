@@ -22,7 +22,7 @@ build do
     make 'install', env: env
     delete "#{install_dir}/libboost"
     delete "#{install_dir}/xtrabackup-test"
-    strip "#{install_dir}/embeddedbin"
+    strip "#{install_dir}/embedded/bin"
     copy '/lib64/libaio.so.1', '/opt/twindb-xtrabackup-80/embedded/lib'
     copy '/lib64/libcom_err.so.2', '/opt/twindb-xtrabackup-80/embedded/lib'
     copy '/lib64/libcrypto.so.10', '/opt/twindb-xtrabackup-80/embedded/lib'
