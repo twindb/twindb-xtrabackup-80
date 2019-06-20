@@ -7,8 +7,6 @@ matrix:
   - python: '2.7'
     env: PLATFORM=centos DISTRO=el OS_VERSION=6 DOCKER_IMAGE=twindb/backup-test:centos-6
   - python: '2.7'
-    env: PLATFORM=debian DISTRO=debian OS_VERSION=jessie DOCKER_IMAGE=twindb/backup-test:jessie
-  - python: '2.7'
     env: PLATFORM=debian DISTRO=debian OS_VERSION=stretch DOCKER_IMAGE=twindb/backup-test:stretch
   - python: '2.7'
     env: PLATFORM=ubuntu DISTRO=ubuntu OS_VERSION=trusty DOCKER_IMAGE=twindb/backup-test:trusty

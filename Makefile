@@ -37,7 +37,7 @@ help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
 .PHONY: clean
-clean: clean-build clean-pyc clean-test clean-docs ## remove all build, test, coverage and Python artifacts
+clean: clean-build ## remove all artifacts
 
 .PHONY: clean-build
 clean-build: ## remove build artifacts

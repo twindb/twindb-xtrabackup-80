@@ -18,5 +18,9 @@ dependency 'preparation'
 dependency 'twindb-xtrabackup-80'
 dependency 'version-manifest'
 
+# RHEL/CentOS
+runtime_dependency 'cronie'
+runtime_dependency 'libaio'
+
 exclude '**/.git'
 exclude '**/bundler/git'
