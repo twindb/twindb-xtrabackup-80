@@ -1,9 +1,8 @@
 GIT
-  remote: git://github.com/twindb/omnibus-software.git
-  revision: 5e72226c026845578e106aa85609fcde3f6dbba7
+  remote: https://github.com/twindb/omnibus-software.git
+  revision: d717bcb28d213864b0639bf3b3a57c8bc2218e80
   specs:
     omnibus-software (4.0.0)
-      chef-sugar (>= 3.4.0)
       omnibus (>= 5.6.1)
 
 GEM
@@ -197,7 +196,7 @@ GEM
     progressbar (1.10.1)
     proxifier (1.0.3)
     public_suffix (3.1.0)
-    rack (2.0.7)
+    rack (2.0.8)
     retryable (3.0.4)
     ruby-progressbar (1.10.1)
     rubyntlm (0.6.2)
